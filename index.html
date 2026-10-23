@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaLingo | Tarjimon</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Rasmdagi matnni aniqlash -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+  <!-- PDFni o'qish -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- PDF yaratish -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="#home" class="logo">Manga<span>Lingo</span></a>
+
+    <nav>
+      <a href="#home">Bosh sahifa</a>
+      <a href="#translator">Tarjimon</a>
+      <a href="#about">Biz haqimizda</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <p class="eyebrow">INGLIZCHADAN O‘ZBEKCHAGA</p>
+        <h1>Manhwani o‘zbekcha <span>o‘qi!</span></h1>
+        <p>
+          Rasm yoki PDF faylingni yukla, inglizcha matnni
+          o‘zbekchaga tarjima qil va natijani PDF qilib saqla.
+        </p>
+        <a href="#translator" class="primary-link">
+          Tarjimani boshlash ↗
+        </a>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle"></div>
+        <div class="art-card">
+          <span>ENGLISH</span>
+          <strong>Hello, friend!</strong>
+          <hr>
+          <span>O‘ZBEKCHA</span>
+          <strong>Salom, do‘stim!</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="translator-section" id="translator">
+      <div class="section-heading">
+        <p class="eyebrow">MANGALINGO TARJIMONI</p>
+        <h2>Faylingni tarjima qil</h2>
+        <p>Rasm yoki matnli PDF faylni tanla.</p>
+      </div>
+
+      <div class="workspace">
+        <div class="panel">
+          <h3>1. Fayl yuklash</h3>
+
+          <label for="manhwaFile">Manhwa rasmi</label>
+          <input
+            id="manhwaFile"
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+          >
+
+          <img
+            id="imagePreview"
+            class="image-preview hidden"
+            alt="Yuklangan manhwa rasmi"
+          >
+
+          <button
+            id="readTextButton"
+            class="button secondary"
+            type="button"
+          >
+            Rasmdagi matnni aniqlash
+          </button>
+
+          <hr>
+
+          <label for="pdfFile">PDF hujjat</label>
+          <input
+            id="pdfFile"
+            type="file"
+            accept="application/pdf,.pdf"
+          >
+
+          <button
+            id="readPdfButton"
+            class="button secondary"
+            type="button"
+          >
+            PDF matnini o‘qish
+          </button>
+
+          <p id="ocrStatus" class="status" aria-live="polite"></p>
+          <p id="pdfReadStatus" class="status" aria-live="polite"></p>
+        </div>
+
+        <div class="panel">
+          <h3>2. Inglizcha matn</h3>
+
+          <p class="hint">
+            Aniqlangan matnni shu yerda tekshirishing va tahrirlashing mumkin.
+          </p>
+
+          <textarea
+            id="ocrResult"
+            rows="12"
+            placeholder="Inglizcha matn shu yerda paydo bo‘ladi..."
+          ></textarea>
+
+          <button
+            id="translateButton"
+            class="button primary"
+            type="button"
+          >
+            O‘zbekchaga tarjima qilish
+          </button>
+
+          <p id="translateStatus" class="status" aria-live="polite"></p>
+        </div>
+
+        <div class="panel">
+          <h3>3. O‘zbekcha tarjima</h3>
+
+          <textarea
+            id="translationResult"
+            rows="12"
+            placeholder="Tarjima natijasi shu yerda ko‘rinadi..."
+            readonly
+          ></textarea>
+
+          <button
+            id="copyButton"
+            class="button secondary"
+            type="button"
+          >
+            Matnni nusxalash
+          </button>
+
+          <button
+            id="downloadPdfButton"
+            class="button primary"
+            type="button"
+            disabled
+          >
+            PDF yuklab olish ↓
+          </button>
+
+          <p id="pdfStatus" class="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <p class="privacy-note">
+        OCR, tarjima va PDF kutubxonalari uchun internet kerak.
+        Skanerlangan PDF rasmlarini o‘qish uchun qo‘shimcha OCR kerak bo‘lishi mumkin.
+      </p>
+    </section>
+
+    <section class="about-section" id="about">
+      <p class="eyebrow">BIZ HAQIMIZDA</p>
+      <h2>Til to‘sig‘isiz o‘qishga bir qadam yaqin.</h2>
+      <p>
+        MangaLingo inglizcha matnlarni o‘zbekchaga tarjima qilishga
+        va tarjima natijasini PDF fayl sifatida saqlashga yordam beradi.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#home" class="logo">Manga<span>Lingo</span></a>
+    <p>O‘qi. Tushun. Kashf et.</p>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+</html>

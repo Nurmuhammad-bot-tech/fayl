@@ -1,0 +1,356 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple: #7c3aed;
+  --purple-dark: #5b21b6;
+  --light-purple: #f3e8ff;
+  --background: #faf8ff;
+  --text: #211936;
+  --muted: #756b86;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* HEADER */
+
+.site-header {
+  width: 100%;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  border-bottom: 1px solid #eee6fa;
+}
+
+.logo {
+  color: var(--purple);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 440px;
+  padding: 65px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, #f5edff, #ffffff);
+}
+
+.hero > div:first-child {
+  max-width: 580px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  color: var(--purple);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+.hero-art {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e9d5ff, #c4b5fd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.art-circle {
+  width: 190px;
+  height: 240px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 15px 40px #5b21b633;
+  transform: rotate(-7deg);
+}
+
+.art-card {
+  position: absolute;
+  padding: 14px 20px;
+  background: white;
+  color: var(--purple-dark);
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px #5b21b622;
+}
+
+.art-card:first-of-type {
+  top: 55px;
+  left: -15px;
+}
+
+.art-card:last-of-type {
+  right: -15px;
+  bottom: 55px;
+}
+
+/* UMUMIY SECTION */
+
+.translator-section,
+.about-section {
+  padding: 65px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 35px;
+}
+
+.section-heading h2,
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.section-heading p,
+.about-section p {
+  color: var(--muted);
+}
+
+/* ISH MAYDONI */
+
+.workspace {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: var(--white);
+  border: 1px solid #e9def8;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px #35205b0a;
+  min-width: 0;
+}
+
+.panel h3 {
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+.panel p {
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+/* INPUTLAR */
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 12px;
+  border: 1px dashed #c4b5fd;
+  border-radius: 10px;
+  background: #faf7ff;
+  color: var(--text);
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  padding: 15px;
+  border: 1px solid #ddd1ef;
+  border-radius: 12px;
+  resize: vertical;
+  font: inherit;
+  color: var(--text);
+  background: #fdfcff;
+  outline: none;
+  margin: 12px 0;
+}
+
+textarea:focus,
+input:focus {
+  border-color: var(--purple);
+}
+
+textarea::placeholder {
+  color: #a39aaf;
+}
+
+/* RASM PREVIEW */
+
+#imagePreview {
+  display: block;
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  margin: 15px auto;
+  border-radius: 12px;
+}
+
+#imagePreview:empty {
+  display: none;
+}
+
+/* BUTTONLAR */
+
+.button {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 5px 5px 5px 0;
+  background: var(--purple);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.button:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px #7c3aed35;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* HOLAT XABARLARI */
+
+.status {
+  min-height: 24px;
+  margin: 10px 0;
+  color: var(--purple-dark);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* ABOUT */
+
+.about-section {
+  text-align: center;
+  background: var(--light-purple);
+}
+
+.about-section p {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 25px 8%;
+  text-align: center;
+  background: #211936;
+  color: #e9ddff;
+}
+
+/* TELEFON VA PLANShet */
+
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .hero-art {
+    width: 240px;
+    height: 240px;
+  }
+
+  .art-circle {
+    width: 150px;
+    height: 190px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .translator-section,
+  .about-section {
+    padding: 45px 5%;
+  }
+
+  .site-header {
+    padding: 18px 5%;
+  }
+}
+
+@media (max-width: 450px) {
+  .hero {
+    padding: 40px 5%;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero-art {
+    width: 200px;
+    height: 200px;
+  }
+
+  .art-circle {
+    width: 125px;
+    height: 160px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .section-heading h2,
+  .about-section h2 {
+    font-size: 27px;
+  }
+
+  .button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
